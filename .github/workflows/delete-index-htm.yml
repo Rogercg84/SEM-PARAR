@@ -1,0 +1,20 @@
+name: Delete index.htm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  delete_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Delete file
+        run: |
+          git rm index.htm
+          git commit -m "Removendo index.htm"
+          git push
+
